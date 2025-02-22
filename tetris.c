@@ -322,12 +322,12 @@ int main() {
             if(s->sound) s->sound();
             
             current_state = s->next_state[choice];
+            if(s->led_effect) s->led_effect();
             
             // Tempo de digitação baseado na escolha
             int duration = (choice == 0) ? 2000 : 1500;
             update_display(current_state, duration);
             
-            if(s->led_effect) s->led_effect();
             
             if(current_state == -1) {
                 // Animação final
